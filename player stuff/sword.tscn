@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c302s8kgn4su2"]
+[gd_scene load_steps=4 format=3 uid="uid://c302s8kgn4su2"]
 
 [ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="1_74bdg"]
+[ext_resource type="Script" uid="uid://db86kscmnwxcu" path="res://player stuff/sword.gd" id="1_bknvu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ynd"]
-size = Vector2(224, 243)
+[sub_resource type="CircleShape2D" id="CircleShape2D_sj6xi"]
+radius = 180.92657
 
 [node name="Sword" type="Area2D"]
+script = ExtResource("1_bknvu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Attack Range" type="CollisionShape2D" parent="."]
+position = Vector2(82.00001, -6.999994)
+scale = Vector2(0.64, 1.04)
+shape = SubResource("CircleShape2D_sj6xi")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(-7.6293945e-06, 0)
+scale = Vector2(1, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(27, -64)
 rotation = 0.38486364
-scale = Vector2(0.296875, 1.9140625)
+scale = Vector2(0.296875, 1.9140626)
 texture = ExtResource("1_74bdg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(113, -69.5)
-shape = SubResource("RectangleShape2D_e4ynd")
