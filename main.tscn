@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://ut73uxfvl3xa"]
+[gd_scene load_steps=14 format=4 uid="uid://ut73uxfvl3xa"]
 
 [ext_resource type="Script" uid="uid://db4wyjp8rp2xh" path="res://player.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dhxlncoktjdv2" path="res://Mech.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://b10fsutd1816k" path="res://tileset.png" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bkcar4a23xrgm" path="res://Spike.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://6sk3b8lq0ohl" path="res://Bounce Tile.png" id="5_lquwl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -175,6 +176,12 @@ texture_region_size = Vector2i(43, 43)
 7:7/0 = 0
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("5_lquwl")
+texture_region_size = Vector2i(43, 43)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("4_272bh")
 texture_region_size = Vector2i(43, 43)
@@ -189,6 +196,7 @@ custom_data_layer_0/name = ""
 custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetAtlasSource_272bh")
 sources/2 = SubResource("TileSetAtlasSource_7mycd")
+sources/1 = SubResource("TileSetAtlasSource_5vw27")
 
 [node name="Main" type="Node"]
 
@@ -218,4 +226,9 @@ tile_set = SubResource("TileSet_7mycd")
 [node name="SpikeTileMap" type="TileMapLayer" parent="."]
 position = Vector2(226, -4.9999924)
 tile_map_data = PackedByteArray("AAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAKAAEAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_5vw27")
+
+[node name="BounceTileMap" type="TileMapLayer" parent="."]
+position = Vector2(226, -4.9999924)
+tile_map_data = PackedByteArray("AAAAAAMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5vw27")

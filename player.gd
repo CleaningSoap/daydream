@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -900
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var spike_tilemap: Node2D = get_node("../SpikeTileMap")
-@onready var bounce_tilemap: Node2D = get_node("../SpikeTileMap")
+@onready var bounce_tilemap: Node2D = get_node("../BounceTileMap")
 
 func die():
 	get_tree().reload_current_scene()
