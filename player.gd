@@ -1,4 +1,3 @@
-#currently Working Code
 extends CharacterBody2D
 
 const SPEED = 600
