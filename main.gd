@@ -50,7 +50,7 @@ func _on_enemy_spawn_timeout() -> void:
 	
 	enemy_health *= difficulty
 	enemy_damage *= (difficulty/2+0.5)
-	enemy_scale *= (difficulty/2+0.5)
+	enemy_scale *= (difficulty/3+0.67)
 	
 	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),enemy_type, enemy_scale, enemy_speed, enemy_health, enemy_damage)
 	
