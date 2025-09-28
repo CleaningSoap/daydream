@@ -25,9 +25,6 @@ rotation = 2.3573122
 scale = Vector2(0.31198254, 0.16406249)
 texture = ExtResource("2_tocf0")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-rotation = 3.9269907
-
 [node name="Timeout" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
