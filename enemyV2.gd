@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
 var player
+var weapon
 
 const PLAYERPATH = "/root/Main/Player"
+const WEAPONPATH = "/root/Main/Player/Sword"
 const SPEED = 100
 var enemy_type = "bomber" #can also be bomber or shooter
 const FOLLOW_DISTANCE = 50
 const EXPLODE_DISTANCE = 50
 
+var health = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node(PLAYERPATH)
+	weapon = get_node(WEAPONPATH)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +37,12 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 		if global_position.distance_to(player.global_position) < FOLLOW_DISTANCE + 100:
 			shoot()
+
+
+
+func get_hit():
+	var damage = weapon.damage
+	health -= damage
 
 func bomb():
 	pass

@@ -41,3 +41,4 @@ func _physics_process(delta):
 	# Fall off map
 	if position.y > 1000:
 		die()
+		
