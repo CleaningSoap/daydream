@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 var player
 var weapon
+var main
 
 const PLAYERPATH = "/root/Main/Player"
 const WEAPONPATH = "/root/Main/Player/Sword"
+const MAINPATH = "/root/Main"
 const SPEED = 100
 var enemy_type = "bomber" #can also be bomber or shooter
 const FOLLOW_DISTANCE = 50
@@ -16,6 +18,8 @@ var health = 100
 func _ready() -> void:
 	player = get_node(PLAYERPATH)
 	weapon = get_node(WEAPONPATH)
+	main = get_node(MAINPATH)
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
