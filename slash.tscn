@@ -17,3 +17,5 @@ shape = SubResource("CircleShape2D_g6ky6")
 position = Vector2(1, 2)
 scale = Vector2(1, 0.16406249)
 texture = ExtResource("2_glx33")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

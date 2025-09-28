@@ -3,12 +3,13 @@ extends Area2D
 @onready var pivot: Marker2D = $Pivot
 @onready var sword: Area2D = $"."  
 @onready var attack_speed: Timer = $"Attack speed"
-
+@onready var slash_cd: Timer = $"Slash CD"
 var player
 const PLAYERPATH = "/root/Main/Player"
 
 @onready var enemy: Node2D = $"."  
 var can_attack = true
+var can_slash = true
 signal attack_damage(a_damage : int)
 var damage = 25
 var last_dir = 0  # Initialize last_dir here
@@ -21,10 +22,17 @@ func _physics_process(_delta):
 			
 	if dir != 0:  # Only update last_dir when the player moves
 		last_dir = dir  
+	if can_slash:
+		if Input.is_action_just_pressed("slash_attack"):
+			if last_dir == -1:  # Facing left
+				rotation += 130
+			elif last_dir == 1:  # Facing right
+				rotation -= 130
+				can_attack = false
+				slash_cd.start()
+			_slash_attack()
 	if can_attack:
 		if Input.is_action_just_pressed("attack"):
-
-
 			if last_dir == -1:  # Facing left
 				rotation += 130
 			elif last_dir == 1:  # Facing right
@@ -45,3 +53,14 @@ func _on_attack_speed_timeout() -> void:
 	# Reset sword rotation after cooldown
 	rotation = 0  # Neutral position after swing
 	can_attack = true
+	
+
+func _on_slash_cd_timeout():
+	rotation = 0
+	can_slash = true
+
+func _slash_attack():
+	const SLASH = preload("res://slash.tscn")
+	var new_slash = SLASH.instantiate()
+	new_slash.global_position = %Slash_Point.global_position
+	%Slash_Point.add_child(new_slash)

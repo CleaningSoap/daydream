@@ -26,8 +26,15 @@ scale = Vector2(0.5, 3.247)
 texture = ExtResource("2_bknvu")
 
 [node name="Slash_Point" type="Marker2D" parent="Pivot/Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(10.729536, 15.304215)
 
 [node name="Attack speed" type="Timer" parent="."]
 wait_time = 0.4
 
+[node name="Slash CD" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Attack speed" to="." method="_on_attack_speed_timeout"]
+[connection signal="timeout" from="Slash CD" to="." method="_on_attack_speed_timeout"]
