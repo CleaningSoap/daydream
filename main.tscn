@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://8caf2yj7p7wr" path="res://Daydream Music.wav" id="15_vivmo"]
-[ext_resource type="PackedScene" uid="uid://dfw3mh583515" path="res://boss.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://cj6j5d7jd5k0f" path="res://boss.tscn" id="16_2cqfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -625,7 +625,7 @@ script = ExtResource("1_272bh")
 enemy_scene = ExtResource("6_7mycd")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(225.00002, -3)
+position = Vector2(210, 3)
 scale = Vector2(0.3, 0.3)
 collision_layer = 15
 collision_mask = 15

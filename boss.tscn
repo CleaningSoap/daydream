@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfw3mh583515"]
+[gd_scene load_steps=7 format=3 uid="uid://cj6j5d7jd5k0f"]
 
 [ext_resource type="Texture2D" uid="uid://cwn6rhdekhhm3" path="res://Alien(4).png" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://cie01mu7y12ei" path="res://boss.gd" id="1_6xxrv"]
@@ -8,6 +8,20 @@ size = Vector2(684, 473)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnu1"]
 size = Vector2(132, 135)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xxrv"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skx2t"]
+bg_color = Color(1, 0.008070083, 0.06453759, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
 
 [node name="Boss" type="Node2D"]
 
@@ -34,6 +48,12 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0bnu1")
 
 [node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D"]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = -130.0
+offset_top = 72.0
+offset_right = 183.0
+offset_bottom = 99.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6xxrv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_skx2t")
 max_value = 10000.0
+value = 10000.0
+show_percentage = false

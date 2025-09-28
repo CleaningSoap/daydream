@@ -17,7 +17,7 @@ const MAINPATH = "/root/Main"
 var can_attack = true
 var can_slash = false
 signal attack_damage(a_damage : int)
-var damage = 25
+var damage = 20
 var damage_multiplier = 1
 var last_dir = 0  # Initialize last_dir here
 var unlocked_slash = false
