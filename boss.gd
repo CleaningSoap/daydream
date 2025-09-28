@@ -34,15 +34,16 @@ func _physics_process(delta: float) -> void:
 		global_position.x = startx
 	if global_position.y != starty:
 		global_position.y = starty
+	if health <= 0:
+		get_tree().paused = true
+		get_tree().change_scene_to_file("res://win_screen.tscn")
 	
 func get_hit(damage: int) -> void:
 	damage = weapon.damage
 	health -= damage
-	print("got hit")
 	if health <= 0:
 		main.killed_enemy()
 		queue_free()
-		emit_signal("Win_Game")
 	if player.position.x < global_position.x:
 		global_position.x += 75
 	elif player.position.x > global_position.x:

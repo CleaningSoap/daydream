@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfw3mh583515"]
+[gd_scene load_steps=5 format=3 uid="uid://cj6j5d7jd5k0f"]
 
 [ext_resource type="Texture2D" uid="uid://cwn6rhdekhhm3" path="res://Alien(4).png" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://cie01mu7y12ei" path="res://boss.gd" id="1_6xxrv"]
