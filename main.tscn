@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://8caf2yj7p7wr" path="res://Daydream Music.wav" id="15_vivmo"]
-[ext_resource type="PackedScene" path="res://boss.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dfw3mh583515" path="res://boss.tscn" id="16_2cqfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -688,7 +688,7 @@ tile_set = SubResource("TileSet_5vw27")
 position = Vector2(-300, 0)
 
 [node name="Difficulty" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 40.0
 autostart = true
 
 [node name="EnemySpawn" type="Timer" parent="."]
@@ -791,6 +791,7 @@ offset_bottom = 11.504196
 
 [node name="Start screen" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Start screen"]
 offset_left = -147.99994
@@ -807,24 +808,22 @@ offset_top = 1.0491536
 offset_right = 9058.828
 offset_bottom = 4044.5264
 scale = Vector2(0.0029613639, 0.006259221)
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 350
 text = "How to play:
 WAD/up, left, and right arrow keys to move,
 Z/L-click for basic attack
 Sacrifice hp for buffs every 5 kills, 
 open buff window with B
 X/R-click for Secondary Attack after unlock
-You heal every 10 kills
-Mobs get stonger over time
-BEAT THE BIG BOSS 
+You heal after 25 kills
 glhf"
 
 [node name="start_button" type="Button" parent="Start screen/ColorRect/Label"]
 layout_mode = 0
-offset_left = 4412.7603
-offset_top = 2790.3372
-offset_right = 4458.7603
-offset_bottom = 2821.3372
+offset_left = 763.2609
+offset_top = 3396.7178
+offset_right = 809.2609
+offset_bottom = 3427.7178
 scale = Vector2(36.807217, 35.115074)
 text = "Start"
 
@@ -834,46 +833,6 @@ autoplay = true
 
 [node name="Boss" parent="." instance=ExtResource("16_2cqfq")]
 position = Vector2(16710, -1830)
-
-[node name="WinScreen" type="CanvasLayer" parent="."]
-process_mode = 2
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="WinScreen"]
-offset_left = -632.0
-offset_top = -324.0
-offset_right = -592.0
-offset_bottom = -284.0
-scale = Vector2(71.48734, 52.282127)
-color = Color(0, 0, 0, 0.8901961)
-
-[node name="Label" type="Label" parent="WinScreen/ColorRect"]
-layout_mode = 0
-offset_left = 13.761896
-offset_top = 8.481448
-offset_right = 208.7619
-offset_bottom = 72.481445
-scale = Vector2(0.08599669, 0.1286919)
-theme_override_font_sizes/font_size = 46
-text = "You Win!"
-
-[node name="Button" type="Button" parent="WinScreen/ColorRect"]
-layout_mode = 0
-offset_left = 13.093227
-offset_top = 17.902866
-offset_right = 108.09323
-offset_bottom = 48.902866
-scale = Vector2(0.06305646, 0.10769998)
-text = "Play Again?"
-
-[node name="Button2" type="Button" parent="WinScreen/ColorRect"]
-layout_mode = 0
-offset_left = 23.794422
-offset_top = 18.113264
-offset_right = 118.79442
-offset_bottom = 49.113266
-scale = Vector2(0.06305646, 0.10769998)
-text = "Quit"
 
 [connection signal="timeout" from="Player/I_frame" to="Player" method="_on_i_frame_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_difficulty_timeout"]
@@ -886,5 +845,3 @@ text = "Quit"
 [connection signal="pressed" from="HP sacrifice screen/ColorRect/Label3/Button3" to="Player" method="_on_button_3_pressed"]
 [connection signal="pressed" from="HP sacrifice screen/ColorRect/Label3/Button3" to="Player/Sword" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Start screen/ColorRect/Label/start_button" to="Player" method="_on_start_button_pressed"]
-[connection signal="pressed" from="WinScreen/ColorRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="WinScreen/ColorRect/Button2" to="." method="_on_button_2_pressed"]
