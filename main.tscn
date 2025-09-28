@@ -624,7 +624,7 @@ script = ExtResource("1_272bh")
 enemy_scene = ExtResource("6_7mycd")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(225, -2)
+position = Vector2(225.00002, -3)
 scale = Vector2(0.3, 0.3)
 collision_layer = 15
 collision_mask = 15
@@ -774,9 +774,11 @@ offset_right = 183.7945
 offset_bottom = 161.55902
 scale = Vector2(0.040970664, 0.091111355)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 10
 text = "Unlock Slash 
 Attack
+Subsequent Upgrades:
++1 slash
 (Shoots Projectile)
 Sacrifice 25% hp"
 
@@ -785,10 +787,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.725
 anchor_bottom = 0.72700006
-offset_left = -2.7660427
-offset_top = 6.333954
-offset_right = 5.247978
-offset_bottom = 11.504196
+offset_left = -6.0208464
+offset_top = 1.3422174
+offset_right = 1.9931717
+offset_bottom = 6.512459
 
 [node name="Start screen" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -834,7 +836,7 @@ stream = ExtResource("15_vivmo")
 autoplay = true
 
 [node name="Boss" parent="." instance=ExtResource("16_2cqfq")]
-position = Vector2(16710, -1830)
+position = Vector2(16852, -1812)
 
 [connection signal="timeout" from="Player/I_frame" to="Player" method="_on_i_frame_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_difficulty_timeout"]
