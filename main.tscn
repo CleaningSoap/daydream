@@ -820,6 +820,7 @@ scale = Vector2(0.0029613639, 0.006259221)
 theme_override_font_sizes/font_size = 300
 text = "How to play:
 WAD/up, left, and right arrow keys to move,
+or space to jump
 Z/L-click for basic attack
 Sacrifice hp for buffs every 5 kills, 
 open buff window with B
