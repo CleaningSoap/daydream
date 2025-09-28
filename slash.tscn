@@ -1,28 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://81b4pw4210r4"]
 
 [ext_resource type="Script" uid="uid://xm2jnx6mtnek" path="res://slash.gd" id="1_tocf0"]
-[ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="2_glx33"]
+[ext_resource type="Texture2D" uid="uid://ejoqnllumgg7" path="res://player stuff/sword slash atttack.png" id="2_tocf0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ky6"]
-radius = 101.12038
+radius = 81.13144
 
 [node name="Slash" type="Area2D"]
+position = Vector2(-1, -4)
 rotation = 3.9269907
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("1_tocf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.020815, 12.020818)
-rotation = 3.9269907
+position = Vector2(9.899496, -9.899494)
+rotation = 2.8503993
 scale = Vector2(1, 0.28000045)
 shape = SubResource("CircleShape2D_g6ky6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8.867523, 9.867527)
-rotation = 3.9269907
-scale = Vector2(1.2279774, 0.16406249)
-texture = ExtResource("2_glx33")
+position = Vector2(-2.5005722, -1.5005646)
+rotation = 2.3573122
+scale = Vector2(0.31198254, 0.16406249)
+texture = ExtResource("2_tocf0")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 rotation = 3.9269907
