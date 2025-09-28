@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dypvdf4ty0sl2"]
+[gd_scene load_steps=3 format=3 uid="uid://dadmt1es2nopl"]
 
-[ext_resource type="Script" uid="uid://dolevmwp73y8i" path="res://win_screen.gd" id="1_l2arl"]
+[ext_resource type="Script" path="res://win_screen.gd" id="1_l2arl"]
+[ext_resource type="AudioStream" uid="uid://nqggh657uovq" path="res://victory-chime-366449.mp3" id="2_wmwda"]
 
 [node name="WinScreen" type="Node2D"]
 visible = false
@@ -45,6 +46,10 @@ offset_bottom = 49.113266
 scale = Vector2(0.06305646, 0.10769998)
 text = "Quit"
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wmwda")
+autoplay = true
 
 [connection signal="pressed" from="WinScreen/ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="WinScreen/ColorRect/Button2" to="." method="_on_button_2_pressed"]
