@@ -8,7 +8,7 @@ var player
 var enemy_killed = 0
 var total_enemy_killed = 0
 var heal_quota = 0
-
+@onready var kill_count: Label = $"Kill Count"
 const PLAYERPATH = "/root/Main/Player"
 
 var difficulty = 1
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	kill_count.text == "Kill Count: " + total_enemy_killed
 
 func _on_difficulty_timeout() -> void:
 	difficulty += 1
