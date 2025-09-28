@@ -19,4 +19,5 @@ shape = SubResource("RectangleShape2D_4gyqm")
 texture = ExtResource("1_7k104")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
+enable_mode = 1
 enable_node_path = NodePath("")
