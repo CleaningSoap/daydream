@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -1000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal hit_player(mob_damage : int)
 var mob_damage = 20
+@onready var button_3: Button = $"../CanvasLayer/ColorRect/Label3/Button3"
 
 @onready var spike_tilemap: Node2D = get_node("../SpikeTileMap")
 @onready var bounce_tilemap: Node2D = get_node("../BounceTileMap")
@@ -71,8 +72,6 @@ func _physics_process(delta):
 		get_tree().paused = true
 		canvas_layer.visible = true
 		
-
-	
 	move_and_slide()
 	# Move with slide (Godot 4 version: no arguments)d
 	
@@ -99,5 +98,19 @@ func _on_i_frame_timeout() -> void:
 
 func _on_button_2_pressed() -> void:
 	health -= 25
-	print("asdfadsf")
-	get_tree().pause = false
+	progress_bar.value = health
+	get_tree().paused = false
+	canvas_layer.visible = false
+
+func _on_button_pressed() -> void:
+	health -= 15
+	progress_bar.value = health
+	get_tree().paused = false
+	canvas_layer.visible = false;
+
+
+func _on_button_3_pressed() -> void:
+	health -= 25
+	progress_bar.value = health
+	get_tree().paused = false
+	canvas_layer.visible = false

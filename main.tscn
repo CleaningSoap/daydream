@@ -699,7 +699,7 @@ offset_left = -569.0
 offset_top = -327.0
 offset_right = -529.0
 offset_bottom = -287.0
-scale = Vector2(65.95031, 27.725058)
+scale = Vector2(74.98986, 32.3964)
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 0.77254903)
 
@@ -779,7 +779,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.725
 anchor_bottom = 0.72700006
-offset_left = 7.0317535
+offset_left = -2.7660427
 offset_top = 6.333954
 offset_right = 5.247978
 offset_bottom = 11.504196
@@ -789,4 +789,8 @@ offset_bottom = 11.504196
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Label2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Label2/Button2" to="Player" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label2/Button2" to="Player/Sword" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label4/Button" to="Player" method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Label4/Button" to="Player/Sword" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label3/Button3" to="Player" method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label3/Button3" to="Player/Sword" method="_on_button_3_pressed"]

@@ -6,13 +6,16 @@ extends Area2D
 @onready var slash_cd: Timer = $"Slash CD"
 var player
 const PLAYERPATH = "/root/Main/Player"
+@onready var attack_range: CollisionShape2D = $"Attack Range"
 
 @onready var enemy: Node2D = $"."  
 var can_attack = true
-var can_slash = true
+var can_slash = false
 signal attack_damage(a_damage : int)
 var damage = 25
 var last_dir = 0  # Initialize last_dir here
+var unlocked_slash = false
+var slash_num = 0
 
 func _ready():
 	player = get_node(PLAYERPATH)
@@ -22,7 +25,7 @@ func _physics_process(_delta):
 			
 	if dir != 0:  # Only update last_dir when the player moves
 		last_dir = dir  
-	if can_slash:
+	if can_slash && unlocked_slash:
 		if Input.is_action_just_pressed("slash_attack"):
 			if last_dir == -1:  # Facing left
 				rotation += 130
@@ -30,7 +33,8 @@ func _physics_process(_delta):
 				rotation -= 130
 				can_attack = false
 				slash_cd.start()
-			_slash_attack()
+			for i in range(slash_num):
+				_slash_attack()
 	if can_attack:
 		if Input.is_action_just_pressed("attack"):
 			if last_dir == -1:  # Facing left
@@ -56,8 +60,9 @@ func _on_attack_speed_timeout() -> void:
 	
 
 func _on_slash_cd_timeout():
-	rotation = 0
-	can_slash = true
+	if unlocked_slash:
+		rotation = 0
+		can_slash = true
 
 func _slash_attack():
 	const SLASH = preload("res://slash.tscn")
@@ -65,9 +70,14 @@ func _slash_attack():
 	new_slash.global_position = %Slash_Point.global_position
 	%Slash_Point.add_child(new_slash)
 
-func _on_button_2_pressed() -> void:
-	damage += 15
 
 func _on_button_pressed() -> void:
-	self.scale = Vector2(2, 2)
-	get_tree().pause = false
+	scale *= 8
+	attack_range.scale *= 8
+
+func _on_button_2_pressed() -> void:
+	damage += 20
+
+func _on_button_3_pressed() -> void:
+	unlocked_slash = true
+	slash += 1
