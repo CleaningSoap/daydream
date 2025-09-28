@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var shoot_cooldown: Timer = $"../ShootCooldown"
 
 signal hit_player(mob_damage : int)
-var mob_damage = 5
+var mob_damage = 20
 @onready var attack_hitbox: Area2D = $"Attack Hitbox"
 @onready var hitbox: Area2D = $"../../Player/Hitbox"
 
