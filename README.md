@@ -8,6 +8,8 @@ Gain the ability to press B and sacrifice HP for a power up every 5 kills!
 
 Every 10th kill heals you
 
-Mobs get stronger over time
+Mobs get stronger over time and come infinitely...
 
-BEAT THE BIG BOSS AND GLHF!
+BEAT THE BIG BOSS TO WIN! 
+
+GLHF!
