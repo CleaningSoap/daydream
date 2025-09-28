@@ -7,6 +7,7 @@ var mob_damage = 10
 @onready var attack_hitbox: Area2D = $"Attack Hitbox"
 @onready var hitbox: Area2D = $"../../Player/Hitbox"
 @onready var explosion_hitbox: Area2D = $"Explosion Hitbox"
+@onready var explosion_timer: Timer = $"../Explosion Timer"
 
 var player
 var weapon
@@ -72,12 +73,11 @@ func get_hit(damage: int) -> void:
 		global_position.x -= 75
 		
 
+var exploding = false
 func bomb():
-	var player_in_range = explosion_hitbox.get_overlapping_bodies()
-	for player in player_in_range:
-		if player is Node2D and player.has_method("take_damage"):
-			player.take_damage(mob_damage)
-			hit_player.emit(mob_damage)
+	if not exploding:
+		exploding = true
+		explosion_timer.start()
 
 var can_shoot = true	
 func shoot():
@@ -100,3 +100,11 @@ func change_health(enemy_health):
 
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
+
+func _on_explosion_timer_timeout() -> void:
+	var player_in_range = explosion_hitbox.get_overlapping_bodies()
+	for player in player_in_range:
+		if player is Node2D and player.has_method("take_damage"):
+			player.take_damage(mob_damage)
+			hit_player.emit(mob_damage)
+	queue_free()

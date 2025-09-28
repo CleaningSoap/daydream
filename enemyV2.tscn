@@ -43,4 +43,9 @@ shape = SubResource("CircleShape2D_ahd25")
 wait_time = 4.0
 one_shot = true
 
+[node name="Explosion Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="ShootCooldown" to="CharacterBody2D" method="_on_shoot_cooldown_timeout"]
+[connection signal="timeout" from="Explosion Timer" to="CharacterBody2D" method="_on_explosion_timer_timeout"]
