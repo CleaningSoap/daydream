@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2gikp4q42goy"]
 
 [ext_resource type="Script" uid="uid://rpv23pxrnjoa" path="res://enemyV2.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://dwyevgh8ojdwp" path="res://Ufo(EMP).png" id="2_ahd25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(125, 116)
@@ -22,7 +22,7 @@ position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_7k104")
+texture = ExtResource("2_ahd25")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
 enable_mode = 1
