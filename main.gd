@@ -50,6 +50,7 @@ func _on_enemy_spawn_timeout() -> void:
 	
 	enemy_health *= difficulty
 	enemy_damage *= difficulty
+	enemy_scale *= difficulty
 	
 	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),enemy_type, enemy_scale, enemy_speed, enemy_health, enemy_damage)
 	
@@ -69,11 +70,13 @@ func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1
 	print("Enemy Spawned")
 	add_child(enemy)
 
+var heal_amount = 100
 func killed_enemy():
 	enemy_killed += 1
 	heal_quota += 1
-	if heal_quota >= 25 :
-		player.heal(100)
+	if heal_quota >= 10 :
+		player.heal(heal_amount)
+		heal_amount *=2
 		heal_quota = 0
 	
 	
