@@ -4,7 +4,7 @@ var player
 
 const PLAYERPATH = "/root/Main/Player"
 const SPEED = 100
-var enemy_type = "chaser" #can also be bomber or shooter
+var enemy_type = "bomber" #can also be bomber or shooter
 const FOLLOW_DISTANCE = 50
 const EXPLODE_DISTANCE = 50
 
