@@ -832,10 +832,10 @@ glhf"
 
 [node name="start_button" type="Button" parent="Start screen/ColorRect/Label"]
 layout_mode = 0
-offset_left = 4412.7603
-offset_top = 2790.3372
-offset_right = 4458.7603
-offset_bottom = 2821.3372
+offset_left = 4529.0186
+offset_top = 2992.464
+offset_right = 4575.0186
+offset_bottom = 3023.464
 scale = Vector2(36.807217, 35.115074)
 text = "Start"
 
