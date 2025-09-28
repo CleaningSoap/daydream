@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://8caf2yj7p7wr" path="res://Daydream Music.wav" id="15_vivmo"]
-[ext_resource type="PackedScene" uid="uid://dfw3mh583515" path="res://boss.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://cj6j5d7jd5k0f" path="res://boss.tscn" id="16_2cqfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -827,7 +827,7 @@ offset_top = 1.0491536
 offset_right = 9058.828
 offset_bottom = 4044.5264
 scale = Vector2(0.0029613639, 0.006259221)
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 290
 text = "How to play:
 WAD/up, left, and right arrow keys to move,
 or space to jump
@@ -842,11 +842,12 @@ glhf"
 
 [node name="start_button" type="Button" parent="Start screen/ColorRect/Label"]
 layout_mode = 0
-offset_left = 4529.0186
-offset_top = 2992.464
-offset_right = 4575.0186
-offset_bottom = 3023.464
-scale = Vector2(36.807217, 35.115074)
+offset_left = 4170.135
+offset_top = 3022.044
+offset_right = 4272.135
+offset_bottom = 3085.044
+scale = Vector2(17.275425, 17.00871)
+theme_override_font_sizes/font_size = 40
 text = "Start"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
