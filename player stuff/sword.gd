@@ -10,7 +10,7 @@ const PLAYERPATH = "/root/Main/Player"
 @onready var enemy: Node2D = $"."  
 var can_attack = true
 signal attack_damage(a_damage : int)
-var damage = 20
+var damage = 25
 var last_dir = 0  # Initialize last_dir here
 
 func _ready():

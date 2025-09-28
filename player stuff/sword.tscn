@@ -26,5 +26,6 @@ scale = Vector2(0.296875, 1.9140627)
 texture = ExtResource("1_74bdg")
 
 [node name="Attack speed" type="Timer" parent="."]
+wait_time = 0.4
 
 [connection signal="timeout" from="Attack speed" to="." method="_on_attack_speed_timeout"]
