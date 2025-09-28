@@ -11,14 +11,16 @@ var heal_quota = 0
 @onready var kill_count: Label = $"Kill Count"
 const PLAYERPATH = "/root/Main/Player"
 
+var kill_count_text
 var difficulty = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node(PLAYERPATH)
+	kill_count_text = get_node("Player/Kill Count")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	kill_count.text == "Kill Count: " + total_enemy_killed
+	kill_count_text.text = "Kill Count: " + str(total_enemy_killed)
 
 func _on_difficulty_timeout() -> void:
 	difficulty += 1
