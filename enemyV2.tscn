@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2gikp4q42goy"]
+[gd_scene load_steps=8 format=3 uid="uid://c2gikp4q42goy"]
 
 [ext_resource type="Script" uid="uid://rpv23pxrnjoa" path="res://enemyV2.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://h7mkis6ia110" path="res://Alien(2).png" id="2_rm6h5"]
+[ext_resource type="Texture2D" uid="uid://kunb3iqjsur" path="res://Alien(5).png" id="3_btwww"]
+[ext_resource type="Texture2D" uid="uid://b7viiwcrkqp2b" path="res://Alien(1).png" id="4_6kww3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(125, 116)
@@ -15,14 +17,15 @@ radius = 172.18594
 [node name="Enemy" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
 script = ExtResource("1_4gyqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1.5, -4)
 shape = SubResource("RectangleShape2D_4gyqm")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_7k104")
+[node name="Shooter" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_rm6h5")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
 enable_mode = 1
@@ -38,6 +41,12 @@ shape = SubResource("RectangleShape2D_ahd25")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Explosion Hitbox"]
 shape = SubResource("CircleShape2D_ahd25")
+
+[node name="Bomber" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_btwww")
+
+[node name="Chaser" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("4_6kww3")
 
 [node name="ShootCooldown" type="Timer" parent="."]
 wait_time = 4.0

@@ -26,7 +26,11 @@ func _ready():
 
 func die():
 	if get_tree():
-		get_tree().reload_current_scene()
+		call_deferred("_go_to_game_over")
+
+func _go_to_game_over():
+	get_tree().change_scene_to_file("res://GameOver.tscn")
+
 
 func _physics_process(delta):
 	# Apply gravity
@@ -82,6 +86,8 @@ func take_damage(mob_damage):
 	if not invincible:
 		print("taking damage")
 		health -= mob_damage 
+		if health <= 0:
+			die()
 		progress_bar.value = health
 		invincible = true
 		i_frame.start()
