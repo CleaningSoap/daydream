@@ -22,5 +22,9 @@ scale = Vector2(1, 0.99999994)
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(27, -64)
 rotation = 0.38486364
-scale = Vector2(0.296875, 1.9140626)
+scale = Vector2(0.296875, 1.9140627)
 texture = ExtResource("1_74bdg")
+
+[node name="Attack speed" type="Timer" parent="."]
+
+[connection signal="timeout" from="Attack speed" to="." method="_on_attack_speed_timeout"]

@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword: Area2D = $Sword
 
+var dir
+
 func die():
 	if get_tree():
 		get_tree().reload_current_scene()
@@ -20,7 +22,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Horizontal input
-	var dir = Input.get_axis("left", "right")
+	dir = Input.get_axis("left", "right")
 	
 	if dir != 0:
 		sprite.scale.x = dir
