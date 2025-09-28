@@ -46,6 +46,11 @@ func get_hit(damage: int) -> void:
 	print("got hit")
 	if health <= 0:
 		queue_free()
+	if player.position.x < global_position.x:
+		global_position.x += 75
+	elif player.position.x > global_position.x:
+		global_position.x -= 75
+		
 
 func bomb():
 	pass
