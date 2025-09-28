@@ -9,7 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ice_tilemap: Node2D = get_node("../IceTileMap")
 
 func die():
-	get_tree().reload_current_scene()
+	if get_tree():
+		get_tree().reload_current_scene()
 
 func _physics_process(delta):
 	# Apply gravity
