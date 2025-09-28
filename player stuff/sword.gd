@@ -64,3 +64,10 @@ func _slash_attack():
 	var new_slash = SLASH.instantiate()
 	new_slash.global_position = %Slash_Point.global_position
 	%Slash_Point.add_child(new_slash)
+
+func _on_button_2_pressed() -> void:
+	damage += 15
+
+func _on_button_pressed() -> void:
+	self.scale = Vector2(2, 2)
+	get_tree().pause = false

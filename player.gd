@@ -12,6 +12,7 @@ var mob_damage = 20
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword: Area2D = $Sword
 @onready var i_frame: Timer = $I_frame
+@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 
 var health = 100.0
 const HPBARPATH = "/root/Main/Player/ProgressBar"
@@ -21,6 +22,7 @@ var dir
 
 func _ready():
 	progress_bar = get_node(HPBARPATH)
+	
 
 func die():
 	if get_tree():
@@ -65,6 +67,11 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY * 1.5
 		elif collider == ice_tilemap:
 			velocity.x = dir * SPEED * 1.6
+	if Input.is_action_just_pressed("open_hp_sacrifice"):
+		get_tree().paused = true
+		canvas_layer.visible = true
+		
+
 	
 	move_and_slide()
 	# Move with slide (Godot 4 version: no arguments)d
@@ -88,3 +95,9 @@ func take_damage(mob_damage):
 		
 func _on_i_frame_timeout() -> void:
 	invincible = false # Replace with function body.
+
+
+func _on_button_2_pressed() -> void:
+	health -= 25
+	print("asdfadsf")
+	get_tree().pause = false
