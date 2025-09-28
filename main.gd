@@ -20,7 +20,31 @@ func _on_difficulty_timeout() -> void:
 
 func _on_enemy_spawn_timeout() -> void:
 	
-	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),"shooter")
+	var enemy_scale
+	var enemy_health
+	var enemy_speed
+	var enemy_damage
+	
+	var enemy_type = randi_range(1,3)
+	if enemy_type == 2:
+		enemy_type = "shooter"
+		enemy_scale = 1.5
+		enemy_health = 200
+		enemy_speed = 0.5
+		enemy_damage = 0
+	elif enemy_type == 3:
+		enemy_type = "bomber"
+		enemy_scale = 0.75
+		enemy_health = 50
+		enemy_speed = 3
+		enemy_damage = 50
+	else:
+		enemy_type = "chaser"
+		enemy_scale = 1
+		enemy_health = 100
+		enemy_speed = 1
+		enemy_damage = 10
+	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),enemy_type, enemy_scale, enemy_speed, enemy_health, enemy_damage)
 	
 
 func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1, enemy_speed = 1, enemy_health = 100, enemy_damage = 20):
