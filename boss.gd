@@ -34,6 +34,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
+	var player_in_range = attack_hitbox.get_overlapping_bodies()
+	for player in player_in_range:
+		if player is Node2D and player.has_method("take_damage"):
+			player.take_damage(mob_damage)
+			hit_player.emit(mob_damage)
+	
 	if global_position.x != startx:
 		global_position.x = startx
 	if global_position.y != starty:
