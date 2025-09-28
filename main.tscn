@@ -635,7 +635,7 @@ offset_right = 127.49997
 offset_bottom = -178.0
 theme_override_styles/background = SubResource("StyleBoxFlat_kek77")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4c57u")
-value = 69.0
+value = 100.0
 
 [node name="I_frame" type="Timer" parent="Player"]
 wait_time = 0.5

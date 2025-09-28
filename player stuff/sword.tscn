@@ -25,6 +25,8 @@ rotation = 3.5273104
 scale = Vector2(0.5, 3.247)
 texture = ExtResource("2_bknvu")
 
+[node name="Slash_Point" type="Marker2D" parent="Pivot/Sprite2D"]
+
 [node name="Attack speed" type="Timer" parent="."]
 wait_time = 0.4
 
