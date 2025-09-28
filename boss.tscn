@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cie01mu7y12ei" path="res://boss.gd" id="1_6xxrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
-size = Vector2(887, 563)
+size = Vector2(684, 473)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnu1"]
 size = Vector2(132, 135)
@@ -15,12 +15,12 @@ size = Vector2(132, 135)
 script = ExtResource("1_6xxrv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(34.5, -34.5)
+position = Vector2(27, -48.5)
 shape = SubResource("RectangleShape2D_6xxrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(20.000002, 33.000004)
-scale = Vector2(9.404347, 8.241072)
+position = Vector2(16, 7.0000153)
+scale = Vector2(7.1630435, 6.316965)
 texture = ExtResource("1_0bnu1")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
