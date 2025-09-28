@@ -10,6 +10,7 @@ var player
 const PLAYERPATH = "/root/Main/Player"
 const MAINPATH = "/root/Main"
 @onready var attack_range: CollisionShape2D = $"Attack Range"
+@onready var slash_repeat_cd: Timer = $"Slash Repeat CD"
 
 @onready var enemy: Node2D = $"."  
 var can_attack = true
@@ -20,6 +21,7 @@ var last_dir = 0  # Initialize last_dir here
 var unlocked_slash = false
 var slash_num = 0
 var main
+var slash_left = 0
 
 func _ready():
 	player = get_node(PLAYERPATH)
@@ -38,8 +40,8 @@ func _physics_process(_delta):
 				rotation -= 130
 				can_attack = false
 				slash_cd.start()
-			for i in range(slash_num):
-				_slash_attack()
+			slash_left = slash_num
+			_slash_attack()
 	if can_attack:
 		if Input.is_action_just_pressed("attack"):
 			if last_dir == -1:  # Facing left
@@ -70,12 +72,14 @@ func _on_slash_cd_timeout():
 		can_slash = true
 
 
-
 func _slash_attack():
 	var new_slash = slash_scene.instantiate()
 	new_slash.global_position = %Slash_Point.global_position
 	new_slash.direction = last_dir
 	main.add_child(new_slash)
+	slash_left -= 1
+	if slash_left > 0:
+		slash_repeat_cd.start()
 
 
 func _on_button_pressed() -> void:
@@ -89,3 +93,7 @@ func _on_button_3_pressed() -> void:
 	unlocked_slash = true
 	can_slash = true
 	slash_num += 1
+
+
+func _on_slash_repeat_cd_timeout() -> void:
+	_slash_attack()

@@ -4,6 +4,7 @@ var damage = 10
 var direction = 1
 const SPEED = 500
 const RANGE = 5000
+@onready var timeout: Timer = $Timeout
 
 func _physics_process(delta: float) -> void:
 	
@@ -16,3 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("get_hit"):
 		body.get_hit(damage)
 		queue_free()
+
+
+func _on_timeout_timeout() -> void:
+	queue_free()
