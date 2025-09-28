@@ -84,7 +84,7 @@ func _physics_process(delta):
 	# Move with slide (Godot 4 version: no arguments)d
 	
 	# Fall off map
-	if position.y > 2000:
+	if position.y > 2000 or health < 1:
 		die()
 	
 var invincible = false
