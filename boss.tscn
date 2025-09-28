@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfw3mh583515"]
+
+[ext_resource type="Texture2D" uid="uid://cwn6rhdekhhm3" path="res://Alien(4).png" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://cie01mu7y12ei" path="res://boss.gd" id="1_6xxrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
+size = Vector2(887, 563)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnu1"]
+size = Vector2(132, 135)
+
+[node name="Boss" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6xxrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(34.5, -34.5)
+shape = SubResource("RectangleShape2D_6xxrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(20.000002, 33.000004)
+scale = Vector2(9.404347, 8.241072)
+texture = ExtResource("1_0bnu1")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
+enable_mode = 1
+enable_node_path = NodePath("")
+
+[node name="Attack Hitbox" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Attack Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_0bnu1")
