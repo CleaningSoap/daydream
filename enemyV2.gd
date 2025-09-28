@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var shoot_cooldown: Timer = $"../ShootCooldown"
 
 signal hit_player(mob_damage : int)
-var mob_damage = 20
+var mob_damage = 10
 @onready var attack_hitbox: Area2D = $"Attack Hitbox"
 @onready var hitbox: Area2D = $"../../Player/Hitbox"
 
@@ -14,7 +14,7 @@ var main
 const PLAYERPATH = "/root/Main/Player"
 const WEAPONPATH = "/root/Main/Player/Sword"
 const MAINPATH = "/root/Main"
-const SPEED = 100
+var SPEED = 100
 var enemy_type = "shooter" #can also be bomber or shooter
 const FOLLOW_DISTANCE = 50
 const EXPLODE_DISTANCE = 50
@@ -75,12 +75,21 @@ func bomb():
 var can_shoot = true	
 func shoot():
 	if can_shoot:
-		main.spawn_enemy(randi_range(global_position.x - 50, global_position.x + 50), randi_range(global_position.y - 50, global_position.y + 50),"chaser", 0.5)
+		main.spawn_enemy(global_position.x, global_position.y - 50,"chaser", 0.5, 4, 10,5)
 		can_shoot = false
 		shoot_cooldown.start()
 	
 func change_type(type):
 	enemy_type = type
+	
+func change_speed(enemy_speed):
+	SPEED *= enemy_speed
+	
+func change_damage(enemy_damage):
+	mob_damage = enemy_damage
+	
+func change_health(enemy_health):
+	health = enemy_health
 
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
