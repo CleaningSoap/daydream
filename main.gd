@@ -22,7 +22,7 @@ func _on_enemy_spawn_timeout() -> void:
 	
 	var enemy = enemy_scene.instantiate()
 	enemy.position.x = randi_range(player.position.x + 500, player.position.x + 1000)
-	enemy.position.y = randi_range(player.position.y - 300, player.position.y + 300)
+	enemy.position.y = randi_range(player.position.y + 100, player.position.y + 300)
 	
 	# Spawn the mob by adding it to the Main scene.
 	print("Enemy Spawned")
