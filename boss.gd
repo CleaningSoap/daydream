@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var shoot_cooldown: Timer = $"../ShootCooldown"
-
+signal win_game
 signal hit_player(mob_damage : int)
 var mob_damage = 100
 @onready var attack_hitbox: Area2D = $"Attack Hitbox"
@@ -42,6 +42,7 @@ func get_hit(damage: int) -> void:
 	if health <= 0:
 		main.killed_enemy()
 		queue_free()
+		emit_signal("Win_Game")
 	if player.position.x < global_position.x:
 		global_position.x += 75
 	elif player.position.x > global_position.x:

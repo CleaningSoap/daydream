@@ -28,7 +28,7 @@ var main
 func _ready():
 	progress_bar = get_node(HPBARPATH)
 	main = get_node(MAINPATH)
-	start_screen.visible = true
+	#start_screen.visible = true
 	get_tree().paused = true
 	
 func die():

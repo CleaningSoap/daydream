@@ -1,6 +1,7 @@
 extends Node
 
 @export var enemy_scene: PackedScene
+@onready var win_screen: CanvasLayer = $WinScreen
 
 var player
 
@@ -80,3 +81,13 @@ func killed_enemy():
 		heal_quota = 0
 	
 	
+func win_game():
+	get_tree().paused = true
+	win_screen.visible = true
+
+
+func _on_button_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit()
