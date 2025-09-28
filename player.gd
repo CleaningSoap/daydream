@@ -6,6 +6,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal hit_player(mob_damage : int)
 var mob_damage = 20
 @onready var button_3: Button = $"../CanvasLayer/ColorRect/Label3/Button3"
+@onready var start_screen: CanvasLayer = $"../Start screen"
+@onready var button: Button = $"../Start screen/ColorRect/Label/Button"
 
 @onready var spike_tilemap: Node2D = get_node("../SpikeTileMap")
 @onready var bounce_tilemap: Node2D = get_node("../BounceTileMap")
@@ -13,7 +15,7 @@ var mob_damage = 20
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword: Area2D = $Sword
 @onready var i_frame: Timer = $I_frame
-@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
+@onready var hp_sacrifice_screen: CanvasLayer = $"../HP sacrifice screen"
 
 var health = 100.0
 const HPBARPATH = "/root/Main/Player/ProgressBar"
@@ -26,6 +28,8 @@ var main
 func _ready():
 	progress_bar = get_node(HPBARPATH)
 	main = get_node(MAINPATH)
+	start_screen.visible = true
+	get_tree().paused = true
 	
 func die():
 	if get_tree():
@@ -74,7 +78,7 @@ func _physics_process(delta):
 		if main.enemy_killed >= 5:
 			main.enemy_killed -= 5
 			get_tree().paused = true
-			canvas_layer.visible = true
+			hp_sacrifice_screen.visible = true
 		
 	move_and_slide()
 	# Move with slide (Godot 4 version: no arguments)d
@@ -104,20 +108,25 @@ func _on_button_2_pressed() -> void:
 	health -= 25
 	progress_bar.value = health
 	get_tree().paused = false
-	canvas_layer.visible = false
+	hp_sacrifice_screen.visible = false
 
 func _on_button_pressed() -> void:
 	health -= 15
 	progress_bar.value = health
 	get_tree().paused = false
-	canvas_layer.visible = false;
+	hp_sacrifice_screen.visible = false;
 
 
 func _on_button_3_pressed() -> void:
 	health -= 25
 	progress_bar.value = health
 	get_tree().paused = false
-	canvas_layer.visible = false
+	hp_sacrifice_screen.visible = false
 
 func heal(heal_amount:int):
 	health += heal_amount
+
+
+func _on_start_button_pressed() -> void:
+	get_tree().paused = false
+	start_screen.visible = false

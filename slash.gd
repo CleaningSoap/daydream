@@ -1,6 +1,6 @@
 extends Area2D
 var distance_travelled = 0
-var damage = 10
+var damage = 5
 var direction = 1
 const SPEED = 500
 const RANGE = 5000
