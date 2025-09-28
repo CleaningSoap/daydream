@@ -16,15 +16,24 @@ const MAINPATH = "/root/Main"
 
 var health = 10000
 
+var startx
+var starty
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node(PLAYERPATH)
 	weapon = get_node(WEAPONPATH)
 	main = get_node(MAINPATH)
+	
+	startx = global_position.x
+	starty = global_position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	pass
+	if global_position.x != startx:
+		global_position.x = startx
+	if global_position.y != starty:
+		global_position.y = starty
 	
 func get_hit(damage: int) -> void:
 	damage = weapon.damage
