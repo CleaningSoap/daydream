@@ -40,9 +40,12 @@ func _physics_process(delta: float) -> void:
 
 
 
-func get_hit():
-	var damage = weapon.damage
+func get_hit(damage: int) -> void:
+	damage = weapon.damage
 	health -= damage
+	print("got hit")
+	if health <= 0:
+		queue_free()
 
 func bomb():
 	pass

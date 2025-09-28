@@ -7,6 +7,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var spike_tilemap: Node2D = get_node("../SpikeTileMap")
 @onready var bounce_tilemap: Node2D = get_node("../BounceTileMap")
 @onready var ice_tilemap: Node2D = get_node("../IceTileMap")
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var sword: Area2D = $Sword
 
 func die():
 	if get_tree():
@@ -19,11 +21,20 @@ func _physics_process(delta):
 
 	# Horizontal input
 	var dir = Input.get_axis("left", "right")
+	
+	if dir != 0:
+		sprite.scale.x = dir
+		sword.scale.x = dir
+	if dir == -1:
+		sword.position.x = -abs(sword.position.x)
+	elif dir == 1:
+		sword.position.x = abs(sword.position.x)
+	
 	if dir != 0:
 		velocity.x = dir * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	# Jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
