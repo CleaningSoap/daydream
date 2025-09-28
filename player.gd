@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ice_tilemap: Node2D = get_node("../IceTileMap")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword: Area2D = $Sword
+@onready var i_frame: Timer = $I_frame
 
 var health = 100.0
 const HPBARPATH = "/root/Main/Player/ProgressBar"
@@ -58,15 +59,24 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY * 1.5
 		elif collider == ice_tilemap:
 			velocity.x = dir * SPEED * 1.6
-			
-	# Move with slide (Godot 4 version: no arguments)
+	
 	move_and_slide()
+	# Move with slide (Godot 4 version: no arguments)d
 	
 	# Fall off map
 	if position.y > 1000:
 		die()
 	
+var invincible = false
+
 func take_damage(mob_damage):
-	health -= mob_damage 
-	progress_bar.value = health
+	if not invincible:
+		print("taking damage")
+		health -= mob_damage 
+		progress_bar.value = health
+		invincible = true
+		i_frame.start()
 		
+		
+func _on_i_frame_timeout() -> void:
+	invincible = false # Replace with function body.
