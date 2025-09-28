@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ut73uxfvl3xa"]
+[gd_scene load_steps=31 format=4 uid="uid://ut73uxfvl3xa"]
 
 [ext_resource type="Script" uid="uid://db4wyjp8rp2xh" path="res://player.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://div6alnmja763" path="res://main.gd" id="1_272bh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://claskpgam4hyc" path="res://ice block.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://8caf2yj7p7wr" path="res://Daydream Music.wav" id="15_vivmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -823,6 +824,10 @@ offset_right = 809.2609
 offset_bottom = 3427.7178
 scale = Vector2(36.807217, 35.115074)
 text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_vivmo")
+autoplay = true
 
 [connection signal="timeout" from="Player/I_frame" to="Player" method="_on_i_frame_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_difficulty_timeout"]
