@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://t0drk6ok21fm"]
+[gd_scene load_steps=5 format=3 uid="uid://t0drk6ok21fm"]
 
 [ext_resource type="Script" uid="uid://d3i0g2idql7qe" path="res://restart.gd" id="1_40baj"]
+[ext_resource type="AudioStream" uid="uid://d20n2s532c0hc" path="res://GameOverSound.wav" id="2_a1htc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_40baj"]
 font_size = 150
@@ -36,6 +37,10 @@ text = "Restart"
 label_settings = SubResource("LabelSettings_a1htc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameOVerSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_a1htc")
+autoplay = true
 
 [connection signal="pressed" from="Restart" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]
