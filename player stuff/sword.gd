@@ -83,8 +83,8 @@ func _slash_attack():
 
 
 func _on_button_pressed() -> void:
-	scale *= 8
-	attack_range.scale *= 8
+	scale *= 2
+	attack_range.scale *= 2
 
 func _on_button_2_pressed() -> void:
 	damage += 20
