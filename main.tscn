@@ -700,8 +700,8 @@ visible = false
 process_mode = 2
 offset_left = -569.0
 offset_top = -327.0
-offset_right = -529.0
-offset_bottom = -287.0
+offset_right = -523.3805
+offset_bottom = -268.28976
 scale = Vector2(74.98986, 32.3964)
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 0.77254903)
@@ -794,8 +794,8 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="Start screen"]
 offset_left = -147.99994
 offset_top = 1.0000305
-offset_right = -114.634705
-offset_bottom = 36.277863
+offset_right = -104.695114
+offset_bottom = 55.741215
 scale = Vector2(66.80549, 32.407047)
 color = Color(0, 0, 0, 1)
 
