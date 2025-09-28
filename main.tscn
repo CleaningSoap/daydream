@@ -672,6 +672,102 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+offset_left = -569.0
+offset_top = -327.0
+offset_right = -529.0
+offset_bottom = -287.0
+scale = Vector2(65.95031, 27.725058)
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 0.77254903)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 15.208421
+offset_top = 11.686182
+offset_right = 172.20842
+offset_bottom = 70.68618
+scale = Vector2(0.040970664, 0.091111355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Pick a Buff
+(Sacrifice health)"
+
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 20.833868
+offset_top = 21.89355
+offset_right = 177.83386
+offset_bottom = 80.893555
+scale = Vector2(0.040970664, 0.091111355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "+Damage
+Sacrifice 25% hp"
+
+[node name="Button2" type="Button" parent="CanvasLayer/ColorRect/Label2"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.77400005
+anchor_bottom = 0.83000004
+offset_left = -1.8504639
+offset_top = 5.9381104
+offset_right = 0.24240112
+offset_bottom = -6.133255
+
+[node name="Label4" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 15.026465
+offset_top = 21.96569
+offset_right = 143.02646
+offset_bottom = 50.864357
+scale = Vector2(0.040970664, 0.091111355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "+Sword Size
+Sacrifice 15% hp"
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect/Label4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.90400004
+anchor_bottom = 1.0
+offset_left = -5.921509
+offset_top = -7.1257257
+offset_right = 7.528755
+offset_bottom = 9.609703
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 8.7945
+offset_top = 20.55902
+offset_right = 183.7945
+offset_bottom = 161.55902
+scale = Vector2(0.040970664, 0.091111355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Unlock Slash 
+Attack
+(Shoots Projectile)
+Sacrifice 25% hp"
+
+[node name="Button3" type="Button" parent="CanvasLayer/ColorRect/Label3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.725
+anchor_bottom = 0.72700006
+offset_left = 7.0317535
+offset_top = 6.333954
+offset_right = 5.247978
+offset_bottom = 11.504196
+
 [connection signal="timeout" from="Player/I_frame" to="Player" method="_on_i_frame_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_difficulty_timeout"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label2/Button2" to="Player" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Label4/Button" to="Player/Sword" method="_on_button_pressed"]
