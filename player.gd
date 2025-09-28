@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 500
 const JUMP_VELOCITY = -1000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+signal hit_player(mob_damage : int)
+var mob_damage = 20
 
 @onready var spike_tilemap: Node2D = get_node("../SpikeTileMap")
 @onready var bounce_tilemap: Node2D = get_node("../BounceTileMap")
@@ -54,7 +56,7 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider == spike_tilemap:
-			die()
+			take_damage(5)
 		elif collider == bounce_tilemap:
 			velocity.y = JUMP_VELOCITY * 1.5
 		elif collider == ice_tilemap:
