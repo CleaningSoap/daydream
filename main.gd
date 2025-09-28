@@ -20,9 +20,16 @@ func _on_difficulty_timeout() -> void:
 
 func _on_enemy_spawn_timeout() -> void:
 	
+	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),"shooter")
+	
+
+func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1):
 	var enemy = enemy_scene.instantiate()
-	enemy.position.x = randi_range(player.position.x + 500, player.position.x + 1000)
-	enemy.position.y = randi_range(player.position.y - 200, player.position.y - 500)
+	enemy.global_position.x = enemy_x
+	enemy.global_position.y = enemy_y
+	enemy.scale *= enemy_scale
+	var body2d = enemy.get_node("CharacterBody2D")
+	body2d.change_type(enemy_type) 
 	
 	# Spawn the mob by adding it to the Main scene.
 	print("Enemy Spawned")

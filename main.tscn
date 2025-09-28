@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c302s8kgn4su2" path="res://player stuff/sword.tscn" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bkcar4a23xrgm" path="res://Spike.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://6sk3b8lq0ohl" path="res://Bounce Tile.png" id="5_lquwl"]
-[ext_resource type="PackedScene" path="res://enemyV2.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c2gikp4q42goy" path="res://enemyV2.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://56f1vkwdjoyu" path="res://Tiles.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dm46tdbykla8n" path="res://Ice Tile.png" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://claskpgam4hyc" path="res://ice block.png" id="11_efxa6"]
