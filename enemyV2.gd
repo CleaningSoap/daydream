@@ -3,9 +3,10 @@ extends CharacterBody2D
 @onready var shoot_cooldown: Timer = $"../ShootCooldown"
 
 signal hit_player(mob_damage : int)
-var mob_damage = 20
+var mob_damage = 10
 @onready var attack_hitbox: Area2D = $"Attack Hitbox"
 @onready var hitbox: Area2D = $"../../Player/Hitbox"
+@onready var explosion_hitbox: Area2D = $"Explosion Hitbox"
 
 var player
 var weapon
@@ -14,10 +15,10 @@ var main
 const PLAYERPATH = "/root/Main/Player"
 const WEAPONPATH = "/root/Main/Player/Sword"
 const MAINPATH = "/root/Main"
-const SPEED = 100
+var SPEED = 100
 var enemy_type = "shooter" #can also be bomber or shooter
-const FOLLOW_DISTANCE = 50
-const EXPLODE_DISTANCE = 50
+const FOLLOW_DISTANCE = 100
+const EXPLODE_DISTANCE = 100
 
 var health = 100
 
@@ -35,6 +36,12 @@ func _physics_process(delta: float) -> void:
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * SPEED
 		move_and_slide()
+		
+		var player_in_range = attack_hitbox.get_overlapping_bodies()
+		for player in player_in_range:
+			if player is Node2D and player.has_method("take_damage"):
+				player.take_damage(mob_damage)
+				hit_player.emit(mob_damage)
 	elif enemy_type == "bomber":
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * SPEED
@@ -46,14 +53,10 @@ func _physics_process(delta: float) -> void:
 			var direction = global_position.direction_to(player.global_position)
 			velocity = direction * SPEED
 			move_and_slide()
-		if global_position.distance_to(player.global_position) < FOLLOW_DISTANCE + 100:
+		if global_position.distance_to(player.global_position) < FOLLOW_DISTANCE*2:
 			shoot()
 	
-	var player_in_range = attack_hitbox.get_overlapping_bodies()
-	for player in player_in_range:
-		if player is Node2D and player.has_method("take_damage"):
-			player.take_damage(mob_damage)
-			hit_player.emit(mob_damage)
+	
 
 
 
@@ -70,17 +73,30 @@ func get_hit(damage: int) -> void:
 		
 
 func bomb():
-	pass
+	var player_in_range = explosion_hitbox.get_overlapping_bodies()
+	for player in player_in_range:
+		if player is Node2D and player.has_method("take_damage"):
+			player.take_damage(mob_damage)
+			hit_player.emit(mob_damage)
 
 var can_shoot = true	
 func shoot():
 	if can_shoot:
-		main.spawn_enemy(randi_range(global_position.x - 50, global_position.x + 50), randi_range(global_position.y - 50, global_position.y + 50),"chaser", 0.5)
+		main.spawn_enemy(global_position.x, global_position.y - 50,"chaser", 0.5, 4, 10,5)
 		can_shoot = false
 		shoot_cooldown.start()
 	
 func change_type(type):
 	enemy_type = type
+	
+func change_speed(enemy_speed):
+	SPEED *= enemy_speed
+	
+func change_damage(enemy_damage):
+	mob_damage = enemy_damage
+	
+func change_health(enemy_health):
+	health = enemy_health
 
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true

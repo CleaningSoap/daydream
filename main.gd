@@ -20,16 +20,43 @@ func _on_difficulty_timeout() -> void:
 
 func _on_enemy_spawn_timeout() -> void:
 	
-	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),"shooter")
+	var enemy_scale
+	var enemy_health
+	var enemy_speed
+	var enemy_damage
+	
+	var enemy_type = randi_range(1,3)
+	if enemy_type == 2:
+		enemy_type = "shooter"
+		enemy_scale = 1.5
+		enemy_health = 200
+		enemy_speed = 0.5
+		enemy_damage = 0
+	elif enemy_type == 3:
+		enemy_type = "bomber"
+		enemy_scale = 0.75
+		enemy_health = 50
+		enemy_speed = 3
+		enemy_damage = 50
+	else:
+		enemy_type = "chaser"
+		enemy_scale = 1
+		enemy_health = 100
+		enemy_speed = 1
+		enemy_damage = 10
+	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),enemy_type, enemy_scale, enemy_speed, enemy_health, enemy_damage)
 	
 
-func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1):
+func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1, enemy_speed = 1, enemy_health = 100, enemy_damage = 20):
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position.x = enemy_x
 	enemy.global_position.y = enemy_y
 	enemy.scale *= enemy_scale
 	var body2d = enemy.get_node("CharacterBody2D")
 	body2d.change_type(enemy_type) 
+	body2d.change_health(enemy_health)
+	body2d.change_speed(enemy_speed)
+	body2d.change_damage(enemy_damage)
 	
 	# Spawn the mob by adding it to the Main scene.
 	print("Enemy Spawned")
