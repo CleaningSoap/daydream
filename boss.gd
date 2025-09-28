@@ -19,6 +19,8 @@ var health = 10000
 var startx
 var starty
 
+var hp_bar
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node(PLAYERPATH)
@@ -27,6 +29,8 @@ func _ready() -> void:
 	
 	startx = global_position.x
 	starty = global_position.y
+	
+	hp_bar = get_node("ProgressBar")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -37,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	if health <= 0:
 		get_tree().paused = true
 		get_tree().change_scene_to_file("res://win_screen.tscn")
+	hp_bar.value = health
 	
 func get_hit(damage: int) -> void:
 	damage = weapon.damage
