@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="2_glx33"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ky6"]
-radius = 231.11043
+radius = 101.12038
 
 [node name="Slash" type="Area2D"]
 rotation = 3.9269907
@@ -13,15 +13,15 @@ collision_mask = 15
 script = ExtResource("1_tocf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.4142151, 4.2426453)
+position = Vector2(12.020815, 12.020818)
 rotation = 3.9269907
 scale = Vector2(1, 0.28000045)
 shape = SubResource("CircleShape2D_g6ky6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5.72044, -4.7204323)
+position = Vector2(8.867523, 9.867527)
 rotation = 3.9269907
-scale = Vector2(3.6924074, 0.16406249)
+scale = Vector2(1.2279774, 0.16406249)
 texture = ExtResource("2_glx33")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
