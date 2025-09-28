@@ -119,5 +119,5 @@ func _on_button_3_pressed() -> void:
 	get_tree().paused = false
 	canvas_layer.visible = false
 
-func heal():
-	pass
+func heal(heal_amount:int):
+	health += heal_amount
