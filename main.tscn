@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b10fsutd1816k" path="res://tileset.png" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bkcar4a23xrgm" path="res://Spike.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://6sk3b8lq0ohl" path="res://Bounce Tile.png" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://c2gikp4q42goy" path="res://enemy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c2gikp4q42goy" path="res://enemyV2.tscn" id="6_7mycd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
