@@ -4,6 +4,8 @@ extends Node
 
 var player
 
+var enemy_killed = 0
+
 const PLAYERPATH = "/root/Main/Player"
 
 var difficulty = 1
@@ -44,6 +46,10 @@ func _on_enemy_spawn_timeout() -> void:
 		enemy_health = 100
 		enemy_speed = 1
 		enemy_damage = 10
+	
+	enemy_health *= difficulty
+	enemy_damage *= difficulty
+	
 	spawn_enemy(randi_range(player.position.x + 500, player.position.x + 1000),randi_range(player.position.y - 200, player.position.y - 500),enemy_type, enemy_scale, enemy_speed, enemy_health, enemy_damage)
 	
 
@@ -61,3 +67,7 @@ func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1
 	# Spawn the mob by adding it to the Main scene.
 	print("Enemy Spawned")
 	add_child(enemy)
+
+func killed_enemy():
+	enemy_killed += 1
+	

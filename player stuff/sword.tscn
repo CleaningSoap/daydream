@@ -33,7 +33,7 @@ position = Vector2(10.729536, 15.304215)
 wait_time = 0.4
 
 [node name="Slash CD" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [node name="Slash Repeat CD" type="Timer" parent="."]
@@ -42,5 +42,4 @@ one_shot = true
 
 [connection signal="timeout" from="Attack speed" to="." method="_on_attack_speed_timeout"]
 [connection signal="timeout" from="Slash CD" to="." method="_on_slash_cd_timeout"]
-[connection signal="timeout" from="Slash CD" to="." method="_on_attack_speed_timeout"]
 [connection signal="timeout" from="Slash Repeat CD" to="." method="_on_slash_repeat_cd_timeout"]

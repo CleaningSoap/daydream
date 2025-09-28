@@ -17,14 +17,16 @@ var mob_damage = 20
 
 var health = 100.0
 const HPBARPATH = "/root/Main/Player/ProgressBar"
+const MAINPATH = "/root/Main"
 var progress_bar
 
 var dir
+var main
 
 func _ready():
 	progress_bar = get_node(HPBARPATH)
+	main = get_node(MAINPATH)
 	
-
 func die():
 	if get_tree():
 		call_deferred("_go_to_game_over")
@@ -69,8 +71,10 @@ func _physics_process(delta):
 		elif collider == ice_tilemap:
 			velocity.x = dir * SPEED * 1.6
 	if Input.is_action_just_pressed("open_hp_sacrifice"):
-		get_tree().paused = true
-		canvas_layer.visible = true
+		if main.enemy_killed >= 5:
+			main.enemy_killed -= 5
+			get_tree().paused = true
+			canvas_layer.visible = true
 		
 	move_and_slide()
 	# Move with slide (Godot 4 version: no arguments)d
@@ -114,3 +118,6 @@ func _on_button_3_pressed() -> void:
 	progress_bar.value = health
 	get_tree().paused = false
 	canvas_layer.visible = false
+
+func heal():
+	pass

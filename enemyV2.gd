@@ -84,6 +84,7 @@ func get_hit(damage: int) -> void:
 	health -= damage
 	print("got hit")
 	if health <= 0:
+		main.killed_enemy()
 		queue_free()
 	if player.position.x < global_position.x:
 		global_position.x += 75

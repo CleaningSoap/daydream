@@ -17,6 +17,7 @@ var can_attack = true
 var can_slash = false
 signal attack_damage(a_damage : int)
 var damage = 25
+var damage_multiplier = 1
 var last_dir = 0  # Initialize last_dir here
 var unlocked_slash = false
 var slash_num = 0
@@ -57,8 +58,8 @@ func _physics_process(_delta):
 			var mobs_in_range = sword.get_overlapping_bodies()
 			for mob in mobs_in_range:
 				if mob is Node2D and mob.has_method("get_hit"):  
-					mob.get_hit(damage)
-					attack_damage.emit(damage)
+					mob.get_hit(int(damage * damage_multiplier))
+					attack_damage.emit(int(damage * damage_multiplier))
 
 func _on_attack_speed_timeout() -> void:
 	# Reset sword rotation after cooldown
@@ -76,6 +77,7 @@ func _slash_attack():
 	var new_slash = slash_scene.instantiate()
 	new_slash.global_position = %Slash_Point.global_position
 	new_slash.direction = last_dir
+	new_slash.damage_multiplier = damage_multiplier
 	main.add_child(new_slash)
 	slash_left -= 1
 	if slash_left > 0:
@@ -87,7 +89,7 @@ func _on_button_pressed() -> void:
 	attack_range.scale *= 2
 
 func _on_button_2_pressed() -> void:
-	damage += 20
+	damage_multiplier *= 1.15
 
 func _on_button_3_pressed() -> void:
 	unlocked_slash = true
