@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ut73uxfvl3xa"]
+[gd_scene load_steps=29 format=4 uid="uid://ut73uxfvl3xa"]
 
 [ext_resource type="Script" uid="uid://db4wyjp8rp2xh" path="res://player.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://div6alnmja763" path="res://main.gd" id="1_272bh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dm46tdbykla8n" path="res://Ice Tile.png" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://claskpgam4hyc" path="res://ice block.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -589,6 +590,18 @@ texture_region_size = Vector2i(43, 43)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w48qg"]
+texture = ExtResource("13_ycdy4")
+texture_region_size = Vector2i(43, 43)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.5, -21.5, 21.5, -21.5, 21.5, 21.5, -21.5, 21.5)
+
 [sub_resource type="TileSet" id="TileSet_5vw27"]
 tile_size = Vector2i(43, 43)
 physics_layer_0/collision_layer = 1
@@ -601,6 +614,7 @@ sources/1 = SubResource("TileSetAtlasSource_5vw27")
 sources/3 = SubResource("TileSetAtlasSource_4c57u")
 sources/4 = SubResource("TileSetAtlasSource_dg77c")
 sources/5 = SubResource("TileSetAtlasSource_ycdy4")
+sources/6 = SubResource("TileSetAtlasSource_w48qg")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_272bh")
@@ -652,7 +666,7 @@ tile_set = SubResource("TileSet_7mycd")
 
 [node name="SpikeTileMap" type="TileMapLayer" parent="."]
 position = Vector2(226, -4.9999924)
-tile_map_data = PackedByteArray("AAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAKAAEAAgAAAAAAAAAXAAIAAgAAAAAAAAAYAAIAAgAAAAAAAAAmAP3/AgAAAAAAAAAfAAIAAgAAAAAAAAAqABAAAgAAAAAAAAApABAAAgAAAAAAAAAoABAAAgAAAAAAAABFAN7/AgAAAAAAAABPAPT/AgAAAAAAAABOAPT/AgAAAAAAAABNAPT/AgAAAAAAAABMAPT/AgAAAAAAAABLAPT/AgAAAAAAAABKAPT/AgAAAAAAAABJAPT/AgAAAAAAAABIAPT/AgAAAAAAAABHAPT/AgAAAAAAAABGAPT/AgAAAAAAAABFAPT/AgAAAAAAAABEAPT/AgAAAAAAAABDAPT/AgAAAAAAAABCAPT/AgAAAAAAAABBAPT/AgAAAAAAAABAAPT/AgAAAAAAAAA/APT/AgAAAAAAAAA+APT/AgAAAAAAAAA9APT/AgAAAAAAAAA8APT/AgAAAAAAAAA7APT/AgAAAAAAAAA6APT/AgAAAAAAAAA5APT/AgAAAAAAAAA6AA4AAgAAAAAAAAA/AAcAAgAAAAAAAABCAAQAAgAAAAAAAABPABUAAgAAAAAAAABOABUAAgAAAAAAAABNABYAAgAAAAAAAABTABIAAgAAAAAAAABCABwAAgAAAAAAAABBABwAAgAAAAAAAABQAPT/AgAAAAAAAABRAPT/AgAAAAAAAABSAPT/AgAAAAAAAABTAPT/AgAAAAAAAABUAPT/AgAAAAAAAABHAOj/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAKAAEAAgAAAAAAAAAXAAIAAgAAAAAAAAAYAAIAAgAAAAAAAAAmAP3/AgAAAAAAAAAfAAIAAgAAAAAAAAAqABAAAgAAAAAAAAApABAAAgAAAAAAAAAoABAAAgAAAAAAAABFAN7/AgAAAAAAAABPAPT/AgAAAAAAAABOAPT/AgAAAAAAAABNAPT/AgAAAAAAAABMAPT/AgAAAAAAAABLAPT/AgAAAAAAAABKAPT/AgAAAAAAAABJAPT/AgAAAAAAAABIAPT/AgAAAAAAAABHAPT/AgAAAAAAAABGAPT/AgAAAAAAAABFAPT/AgAAAAAAAABEAPT/AgAAAAAAAABDAPT/AgAAAAAAAABCAPT/AgAAAAAAAABBAPT/AgAAAAAAAABAAPT/AgAAAAAAAAA/APT/AgAAAAAAAAA+APT/AgAAAAAAAAA9APT/AgAAAAAAAAA8APT/AgAAAAAAAAA7APT/AgAAAAAAAAA6APT/AgAAAAAAAAA5APT/AgAAAAAAAAA6AA4AAgAAAAAAAAA/AAcAAgAAAAAAAABCAAQAAgAAAAAAAABPABUAAgAAAAAAAABOABUAAgAAAAAAAABNABYAAgAAAAAAAABTABIAAgAAAAAAAABCABwAAgAAAAAAAABBABwAAgAAAAAAAABQAPT/AgAAAAAAAABRAPT/AgAAAAAAAABSAPT/AgAAAAAAAABTAPT/AgAAAAAAAABUAPT/AgAAAAAAAABHAOj/AgAAAAAAAAA7AAYABgAAAAEAAABEAO3/BgABAAAAAABFAO3/BgABAAAAAABGAO3/BgABAAAAAAA7APD/BgABAAAAAAA8APD/BgABAAAAAAA9APD/BgABAAAAAABYAPT/BgAAAAAAAAA=")
 tile_set = SubResource("TileSet_5vw27")
 
 [node name="BounceTileMap" type="TileMapLayer" parent="."]
