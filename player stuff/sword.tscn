@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c302s8kgn4su2"]
+[gd_scene load_steps=5 format=3 uid="uid://c302s8kgn4su2"]
 
 [ext_resource type="Script" uid="uid://db86kscmnwxcu" path="res://player stuff/sword.gd" id="1_bknvu"]
 [ext_resource type="Texture2D" uid="uid://boye1jfpq4gs4" path="res://Wide Sword.png" id="2_bknvu"]
+[ext_resource type="AudioStream" uid="uid://ou5f0vfxwl8g" path="res://sword-slash-and-swing-185432.mp3" id="3_k3p0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj6xi"]
 radius = 180.92657
@@ -39,6 +40,10 @@ one_shot = true
 [node name="Slash Repeat CD" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="Swing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k3p0b")
+volume_db = -30.612
 
 [connection signal="timeout" from="Attack speed" to="." method="_on_attack_speed_timeout"]
 [connection signal="timeout" from="Slash CD" to="." method="_on_slash_cd_timeout"]

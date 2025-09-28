@@ -11,6 +11,7 @@ const PLAYERPATH = "/root/Main/Player"
 const MAINPATH = "/root/Main"
 @onready var attack_range: CollisionShape2D = $"Attack Range"
 @onready var slash_repeat_cd: Timer = $"Slash Repeat CD"
+@onready var swing: AudioStreamPlayer = $Swing
 
 @onready var enemy: Node2D = $"."  
 var can_attack = true
@@ -45,6 +46,7 @@ func _physics_process(_delta):
 			_slash_attack()
 	if can_attack:
 		if Input.is_action_just_pressed("attack"):
+			swing.play()
 			if last_dir == -1:  # Facing left
 				rotation += 130
 			elif last_dir == 1:  # Facing right
@@ -75,6 +77,7 @@ func _on_slash_cd_timeout():
 
 func _slash_attack():
 	var new_slash = slash_scene.instantiate()
+	swing.play()
 	new_slash.global_position = %Slash_Point.global_position
 	new_slash.direction = last_dir
 	new_slash.damage_multiplier = damage_multiplier

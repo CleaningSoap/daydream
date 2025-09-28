@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ut73uxfvl3xa"]
+[gd_scene load_steps=33 format=4 uid="uid://ut73uxfvl3xa"]
 
 [ext_resource type="Script" uid="uid://db4wyjp8rp2xh" path="res://player.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://div6alnmja763" path="res://main.gd" id="1_272bh"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://6sk3b8lq0ohl" path="res://Bounce Tile.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c2gikp4q42goy" path="res://enemyV2.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://81b4pw4210r4" path="res://slash.tscn" id="6_w48qg"]
+[ext_resource type="AudioStream" uid="uid://ou5f0vfxwl8g" path="res://sword-slash-and-swing-185432.mp3" id="7_yaehf"]
 [ext_resource type="Texture2D" uid="uid://56f1vkwdjoyu" path="res://Tiles.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dm46tdbykla8n" path="res://Ice Tile.png" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://claskpgam4hyc" path="res://ice block.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cawxxqdtgvisg" path="res://SpringBlock.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://c80nyds88heaj" path="res://Spikes.png" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://8caf2yj7p7wr" path="res://Daydream Music.wav" id="15_vivmo"]
-[ext_resource type="PackedScene" uid="uid://cj6j5d7jd5k0f" path="res://boss.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dfw3mh583515" path="res://boss.tscn" id="16_2cqfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 94.99996
@@ -664,6 +665,9 @@ allow_greater = true
 [node name="I_frame" type="Timer" parent="Player"]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("7_yaehf")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(226, -4.9999924)
