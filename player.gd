@@ -114,4 +114,3 @@ func _on_button_3_pressed() -> void:
 	progress_bar.value = health
 	get_tree().paused = false
 	canvas_layer.visible = false
-	button_3.visible = false

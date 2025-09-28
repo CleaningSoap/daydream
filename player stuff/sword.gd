@@ -15,6 +15,7 @@ signal attack_damage(a_damage : int)
 var damage = 25
 var last_dir = 0  # Initialize last_dir here
 var unlocked_slash = false
+var slash_num = 0
 
 func _ready():
 	player = get_node(PLAYERPATH)
@@ -32,7 +33,8 @@ func _physics_process(_delta):
 				rotation -= 130
 				can_attack = false
 				slash_cd.start()
-			_slash_attack()
+			for i in range(slash_num):
+				_slash_attack()
 	if can_attack:
 		if Input.is_action_just_pressed("attack"):
 			if last_dir == -1:  # Facing left
@@ -78,3 +80,4 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	unlocked_slash = true
+	slash += 1
