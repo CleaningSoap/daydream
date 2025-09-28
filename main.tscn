@@ -685,7 +685,7 @@ tile_set = SubResource("TileSet_5vw27")
 position = Vector2(-300, 0)
 
 [node name="Difficulty" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [node name="EnemySpawn" type="Timer" parent="."]
