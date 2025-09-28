@@ -10,7 +10,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword: Area2D = $Sword
 
+var health = 100.0
+const HPBARPATH = "/root/Main/Player/ProgressBar"
+var progress_bar
+
 var dir
+
+func _ready():
+	progress_bar = get_node(HPBARPATH)
 
 func die():
 	if get_tree():
@@ -58,4 +65,8 @@ func _physics_process(delta):
 	# Fall off map
 	if position.y > 1000:
 		die()
+	
+func take_damage(mob_damage):
+	health -= mob_damage 
+	progress_bar.value = health
 		

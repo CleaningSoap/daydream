@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gikp4q42goy"]
+[gd_scene load_steps=5 format=3 uid="uid://c2gikp4q42goy"]
 
 [ext_resource type="Script" uid="uid://rpv23pxrnjoa" path="res://enemyV2.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="1_7k104"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(125, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahd25"]
+size = Vector2(132, 135)
 
 [node name="Enemy" type="Node2D"]
 
@@ -21,6 +24,12 @@ texture = ExtResource("1_7k104")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CharacterBody2D"]
 enable_mode = 1
 enable_node_path = NodePath("")
+
+[node name="Attack Hitbox" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Attack Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ahd25")
 
 [node name="ShootCooldown" type="Timer" parent="."]
 wait_time = 8.0

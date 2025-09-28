@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @onready var shoot_cooldown: Timer = $"../ShootCooldown"
 
+signal hit_player(mob_damage : int)
+var mob_damage = 5
+@onready var attack_hitbox: Area2D = $"Attack Hitbox"
+@onready var hitbox: Area2D = $"../../Player/Hitbox"
+
 var player
 var weapon
 var main
@@ -43,6 +48,12 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 		if global_position.distance_to(player.global_position) < FOLLOW_DISTANCE + 100:
 			shoot()
+	
+	var player_in_range = attack_hitbox.get_overlapping_bodies()
+	for player in player_in_range:
+		if player is Node2D and player.has_method("take_damage"):
+			player.take_damage(mob_damage)
+			hit_player.emit(mob_damage)
 
 
 
@@ -70,7 +81,6 @@ func shoot():
 	
 func change_type(type):
 	enemy_type = type
-
 
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
