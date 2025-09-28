@@ -7,7 +7,7 @@
 size = Vector2(684, 473)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnu1"]
-size = Vector2(132, 135)
+size = Vector2(686, 469)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xxrv"]
 bg_color = Color(0, 0, 0, 1)
@@ -44,7 +44,7 @@ enable_node_path = NodePath("")
 [node name="Attack Hitbox" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Attack Hitbox"]
-position = Vector2(0, 0.5)
+position = Vector2(27, -51.5)
 shape = SubResource("RectangleShape2D_0bnu1")
 
 [node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D"]
