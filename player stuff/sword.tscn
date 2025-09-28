@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c302s8kgn4su2"]
 
-[ext_resource type="Texture2D" uid="uid://d06xnxf1156lg" path="res://icon.svg" id="1_74bdg"]
 [ext_resource type="Script" uid="uid://db86kscmnwxcu" path="res://player stuff/sword.gd" id="1_bknvu"]
+[ext_resource type="Texture2D" uid="uid://boye1jfpq4gs4" path="res://Wide Sword.png" id="2_bknvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj6xi"]
 radius = 180.92657
@@ -21,9 +21,9 @@ scale = Vector2(1, 0.99999994)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(27, -64)
-rotation = 0.38486364
-scale = Vector2(0.296875, 1.9140627)
-texture = ExtResource("1_74bdg")
+rotation = 3.5273104
+scale = Vector2(0.5, 3.247)
+texture = ExtResource("2_bknvu")
 
 [node name="Attack speed" type="Timer" parent="."]
 wait_time = 0.4

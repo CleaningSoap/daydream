@@ -55,4 +55,3 @@ attack={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.5676052, 0.7409956, 1, 0.34117648)
