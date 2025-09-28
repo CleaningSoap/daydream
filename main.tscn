@@ -657,7 +657,7 @@ tile_set = SubResource("TileSet_5vw27")
 
 [node name="BounceTileMap" type="TileMapLayer" parent="."]
 position = Vector2(226, -4.9999924)
-tile_map_data = PackedByteArray("AAAAAAMABQAAAAAAAAAcAAIABQAAAAAAAAA3ABwABQAAAAAAAAA2ABwABQAAAAAAAABLABYABQAAAAAAAABUAA4ABQAAAAAAAAA2ABMABQAAAAAAAAA3APX/BQAAAAAAAABGAN7/BQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMABQAAAAAAAAAcAAIABQAAAAAAAAA3ABwABQAAAAAAAAA2ABwABQAAAAAAAABLABYABQAAAAAAAAA2ABMABQAAAAAAAAA3APX/BQAAAAAAAABGAN7/BQAAAAAAAABXAPr/BQAAAAAAAABUAA0ABQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5vw27")
 
 [node name="IceTileMap" type="TileMapLayer" parent="."]
@@ -677,6 +677,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 process_mode = 2
