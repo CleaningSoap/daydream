@@ -1,11 +1,14 @@
 extends Area2D
 
+@export var slash_scene: PackedScene
+
 @onready var pivot: Marker2D = $Pivot
 @onready var sword: Area2D = $"."  
 @onready var attack_speed: Timer = $"Attack speed"
 @onready var slash_cd: Timer = $"Slash CD"
 var player
 const PLAYERPATH = "/root/Main/Player"
+const MAINPATH = "/root/Main"
 @onready var attack_range: CollisionShape2D = $"Attack Range"
 
 @onready var enemy: Node2D = $"."  
@@ -16,9 +19,11 @@ var damage = 25
 var last_dir = 0  # Initialize last_dir here
 var unlocked_slash = false
 var slash_num = 0
+var main
 
 func _ready():
 	player = get_node(PLAYERPATH)
+	main = get_node(MAINPATH)
 
 func _physics_process(_delta):
 	var dir = player.dir
@@ -64,11 +69,13 @@ func _on_slash_cd_timeout():
 		rotation = 0
 		can_slash = true
 
+
+
 func _slash_attack():
-	const SLASH = preload("res://slash.tscn")
-	var new_slash = SLASH.instantiate()
+	var new_slash = slash_scene.instantiate()
 	new_slash.global_position = %Slash_Point.global_position
-	%Slash_Point.add_child(new_slash)
+	new_slash.direction = last_dir
+	main.add_child(new_slash)
 
 
 func _on_button_pressed() -> void:
@@ -80,4 +87,5 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	unlocked_slash = true
-	slash += 1
+	can_slash = true
+	slash_num += 1

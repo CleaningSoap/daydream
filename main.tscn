@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ut73uxfvl3xa"]
+[gd_scene load_steps=30 format=4 uid="uid://ut73uxfvl3xa"]
 
 [ext_resource type="Script" uid="uid://db4wyjp8rp2xh" path="res://player.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://div6alnmja763" path="res://main.gd" id="1_272bh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bkcar4a23xrgm" path="res://Spike.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://6sk3b8lq0ohl" path="res://Bounce Tile.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c2gikp4q42goy" path="res://enemyV2.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://81b4pw4210r4" path="res://slash.tscn" id="6_w48qg"]
 [ext_resource type="Texture2D" uid="uid://56f1vkwdjoyu" path="res://Tiles.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dm46tdbykla8n" path="res://Ice Tile.png" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://claskpgam4hyc" path="res://ice block.png" id="11_efxa6"]
@@ -645,6 +646,7 @@ position = Vector2(95, -2.5)
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 15
 collision_mask = 15
+slash_scene = ExtResource("6_w48qg")
 
 [node name="ProgressBar" type="ProgressBar" parent="Player"]
 offset_left = -127.5
