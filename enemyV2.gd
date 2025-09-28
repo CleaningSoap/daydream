@@ -8,6 +8,10 @@ var mob_damage = 10
 @onready var hitbox: Area2D = $"../../Player/Hitbox"
 @onready var explosion_hitbox: Area2D = $"Explosion Hitbox"
 @onready var explosion_timer: Timer = $"../Explosion Timer"
+@onready var shooter: Sprite2D = $Shooter
+@onready var chaser: Sprite2D = $Chaser
+@onready var bomber: Sprite2D = $Bomber
+
 
 var player
 var weapon
@@ -29,7 +33,21 @@ func _ready() -> void:
 	weapon = get_node(WEAPONPATH)
 	main = get_node(MAINPATH)
 	
-	pass # Replace with function body.
+	shooter.visible = false 
+	chaser.visible = false
+	bomber.visible = false
+	
+	if enemy_type == "shooter":
+		shooter.visible = true
+		set_collision_layer_value(2, true)
+	elif enemy_type == "bomber":
+		bomber.visible = true
+		set_collision_layer_value(3, true)
+	else:
+		chaser.visible = true
+		set_collision_layer_value(4, true)
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
