@@ -6,6 +6,7 @@ extends Node
 var player
 
 var enemy_killed = 0
+var total_enemy_killed = 0
 var heal_quota = 0
 
 const PLAYERPATH = "/root/Main/Player"
@@ -74,9 +75,10 @@ func spawn_enemy(enemy_x :int,enemy_y:int,enemy_type = "chaser", enemy_scale = 1
 var heal_amount = 100
 func killed_enemy():
 	enemy_killed += 1
+	total_enemy_killed += 1
 	heal_quota += 1
 	if heal_quota >= 10 :
 		player.heal(heal_amount)
-		heal_amount *=2
+		heal_amount *=1.5
 		heal_quota = 0
 	

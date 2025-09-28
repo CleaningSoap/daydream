@@ -40,6 +40,7 @@ func _go_to_game_over():
 
 
 func _physics_process(delta):
+	progress_bar.value = health
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
