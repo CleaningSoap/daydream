@@ -80,14 +80,3 @@ func killed_enemy():
 		heal_amount *=2
 		heal_quota = 0
 	
-	
-func win_game():
-	get_tree().paused = true
-	win_screen.visible = true
-
-
-func _on_button_pressed() -> void:
-	get_tree().reload_current_scene()
-
-func _on_button_2_pressed() -> void:
-	get_tree().quit()
