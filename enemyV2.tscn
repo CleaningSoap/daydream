@@ -49,11 +49,11 @@ texture = ExtResource("3_btwww")
 texture = ExtResource("4_6kww3")
 
 [node name="ShootCooldown" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Explosion Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="ShootCooldown" to="CharacterBody2D" method="_on_shoot_cooldown_timeout"]
