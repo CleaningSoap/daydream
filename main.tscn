@@ -717,11 +717,11 @@ color = Color(0, 0, 0, 0.77254903)
 layout_mode = 0
 offset_left = 15.208421
 offset_top = 11.686182
-offset_right = 172.20842
+offset_right = 176.20842
 offset_bottom = 70.68618
-scale = Vector2(0.040970664, 0.091111355)
+scale = Vector2(0.017347172, 0.03667605)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 50
 text = "Pick a Buff
 (Sacrifice health)"
 
@@ -731,9 +731,9 @@ offset_left = 20.833868
 offset_top = 21.89355
 offset_right = 177.83386
 offset_bottom = 80.893555
-scale = Vector2(0.040970664, 0.091111355)
+scale = Vector2(0.02126502, 0.047671195)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "+Damage
 Sacrifice 25% hp"
 
@@ -747,6 +747,7 @@ offset_left = -1.8504639
 offset_top = 5.9381104
 offset_right = 0.24240112
 offset_bottom = -6.133255
+scale = Vector2(1.3384559, 1.4372103)
 
 [node name="Label4" type="Label" parent="HP sacrifice screen/ColorRect"]
 layout_mode = 0
@@ -754,9 +755,9 @@ offset_left = 15.026465
 offset_top = 21.96569
 offset_right = 143.02646
 offset_bottom = 50.864357
-scale = Vector2(0.040970664, 0.091111355)
+scale = Vector2(0.024776641, 0.058532927)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 25
 text = "+Sword Size
 Sacrifice 15% hp"
 
@@ -769,16 +770,17 @@ offset_left = -5.921509
 offset_top = -7.1257257
 offset_right = 7.528755
 offset_bottom = 9.609703
+scale = Vector2(1.0817388, 1)
 
 [node name="Label3" type="Label" parent="HP sacrifice screen/ColorRect"]
 layout_mode = 0
-offset_left = 8.7945
-offset_top = 20.55902
-offset_right = 183.7945
-offset_bottom = 161.55902
-scale = Vector2(0.040970664, 0.091111355)
+offset_left = 9.988016
+offset_top = 20.280033
+offset_right = 227.98802
+offset_bottom = 203.28003
+scale = Vector2(0.015563695, 0.037714355)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 20
 text = "Unlock Slash 
 Attack
 Subsequent Upgrades:
@@ -795,6 +797,7 @@ offset_left = -6.0208464
 offset_top = 1.3422174
 offset_right = 1.9931717
 offset_bottom = 6.512459
+scale = Vector2(1.5231329, 1.4516507)
 
 [node name="Start screen" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -841,6 +844,16 @@ autoplay = true
 
 [node name="Boss" parent="." instance=ExtResource("16_2cqfq")]
 position = Vector2(16852, -1812)
+
+[node name="Kill Count" type="Label" parent="."]
+offset_left = -364.0
+offset_top = -321.0
+offset_right = -324.0
+offset_bottom = -298.0
+scale = Vector2(0.9932819, 0.9642133)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Kill Count:"
 
 [connection signal="timeout" from="Player/I_frame" to="Player" method="_on_i_frame_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_difficulty_timeout"]
